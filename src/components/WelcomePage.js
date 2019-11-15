@@ -1,5 +1,6 @@
 import React from "react";
-
+import {Button,Typography as Font} from '@material-ui/core';
+import {Link} from 'react-router-dom';
 export default function WelcomePage() {
   return (
     <section className="welcome-page">
@@ -11,6 +12,16 @@ export default function WelcomePage() {
           alt="rick"
         />
       </header>
+      <Button component={Link} to='/characterlist' color='primary' variant='contained'>
+        <Font variant='button'>
+          View Charaters
+        </Font>
+      </Button>
+      <Button component={Link} to='/locationlist' color='primary' variant='contained'>
+        <Font variant='button'>
+          View Locations
+        </Font>
+      </Button>
     </section>
   );
 }
