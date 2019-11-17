@@ -4,12 +4,17 @@ import {Card, Typography as Font,Button,Grid} from '@material-ui/core';
 const axios = require('axios');
 
 export default function Character({location:{state:{url}}}) {
-    const [character,setCharacter] = useState([])
+    const [character,setCharacter] = useState([]);
+    const [episode,setEpisode] = useState([]);
     useEffect(()=>{
         const req = async() => {
             const res = await axios.get(url)
-            console.log(res)
+ 
             setCharacter(res.data);
+            res.data.episode.forEach(ep => {
+                
+            });
+
         }
         req();
     },[])

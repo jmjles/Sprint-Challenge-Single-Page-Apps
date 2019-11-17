@@ -1,9 +1,11 @@
 import React from "react";
 import {Button,Typography as Font} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-export default function WelcomePage() {
+export default function WelcomePage({characters}) {
+  const Rick = characters.filter(char => char.id=== '1')
   return (
     <section className="welcome-page">
+      {console.log(Rick)}
       <header>
         <h1>Welcome to the ultimate fan site!</h1>
         <img
