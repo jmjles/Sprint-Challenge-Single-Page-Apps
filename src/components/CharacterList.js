@@ -1,16 +1,42 @@
 import React, { useEffect, useState } from "react";
 
+import CharacterCard from "./CharacterCard";
+import Search from "./SearchForm";
+
+import { Grid } from "@material-ui/core";
+const axios = require("axios");
+
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
 
+  const [characters, setCharacters] = useState([]);
+  const [search, setSearch] = useState("");
+  const [data, setData] = useState([]);
+  let x = [];
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+    const req = async () => {
+      let res = await axios.get("https://rickandmortyapi.com/api/character");
+      x = res.data.results;
+      setData(x);
+      setCharacters(x);
+      console.log(x)
+    };
+    req();
   }, []);
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      <Search
+        search={search}
+        setSearch={setSearch}
+        characters={characters}
+        data={setData}
+      />
+      <Grid container justify="space-around" spacing={4}>
+        {data.map(character => (
+          <CharacterCard character={character} key={character.id} />
+        ))}
+      </Grid>
     </section>
   );
 }

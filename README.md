@@ -28,6 +28,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ]  Explain benefit(s) using `client-side routing`?
 
 > Answer:
+Renders Different components without refreshing the whe whole site to display different components according to the routes.
 
 ## Project Set Up
 
